@@ -1,8 +1,8 @@
 import sqlite3
 from tweet import Tweet
 
-# conn = sqlite3.connect('tweets.db')
-conn = sqlite3.connect(':memory:')
+conn = sqlite3.connect('tweets.db')
+# conn = sqlite3.connect(':memory:')
 
 c = conn.cursor()
 
