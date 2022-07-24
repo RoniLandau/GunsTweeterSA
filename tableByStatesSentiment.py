@@ -43,18 +43,19 @@ for tweet in alltweets:
 
 print(statesDict)
 
-c.execute("""CREATE TABLE states_sentiment_v3 (
+c.execute("""CREATE TABLE states_sentiment_v4 (
             state_name text,
-            sentiment integer
+            sentiment text
             )""")
 
 for state in statesDict:
     sentiment = statesDict[state]
     if sentiment <0:
-        sentiment = -1
+        sentiment = "Negative"
     elif sentiment >0:
-        sentiment =1
+        sentiment = "Positive"
+    else: sentiment = "Neutral"
     # else: sentiment = 0
-    insert_state(state,sentiment,"states_sentiment_v3")
+    insert_state(state,sentiment,"states_sentiment_v4")
 
 connSQL.commit()
